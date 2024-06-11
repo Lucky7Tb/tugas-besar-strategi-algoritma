@@ -1,3 +1,8 @@
+function main() {
+  const arr = [1, 3, 4, 5];
+  console.log(jumpGame(arr));
+}
+
 function jumpGame(arr: number[]) {
   let minimumJump = 0;
   let position = 0;
@@ -14,3 +19,5 @@ function jumpGame(arr: number[]) {
 
   return minimumJump;
 }
+
+main();
