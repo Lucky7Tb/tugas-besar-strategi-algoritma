@@ -1,13 +1,7 @@
 const result: number[][] = [];
 let minimumJump = 0;
 
-function main() {
-  const arr = [1, 2, 4, 5];
-  generateJumpPath(arr, 0, []);
-  console.log(result);
-}
-
-function generateJumpPath(
+function jumpGame(
   arr: number[],
   currentIndex: number,
   jumpPath: number[]
@@ -26,10 +20,23 @@ function generateJumpPath(
           result.push(newJumpPath);
         }
       } else {
-        generateJumpPath(arr, nextJump, newJumpPath);
+        jumpGame(arr, nextJump, newJumpPath);
       }
     }
   }
+}
+
+function main() {
+  const arr: number[] = [];
+  for (let i = 0; i < 50; i++) {
+    arr.push(Math.floor(Math.random() * 9) + 1);
+  }
+  console.log(arr);
+  const startTime = performance.now();
+  jumpGame(arr, 0, []);
+  const endTime = performance.now();
+  console.log(result);
+  console.log(`Execution time: ${endTime - startTime}ms`);
 }
 
 main();
